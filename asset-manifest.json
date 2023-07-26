@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Assessment/static/css/main.fc787f11.css",
-    "main.js": "/Assessment/static/js/main.03a25253.js",
-    "static/js/787.ef1b7470.chunk.js": "/Assessment/static/js/787.ef1b7470.chunk.js",
-    "static/media/44619-quiz-1.mp4": "/Assessment/static/media/44619-quiz-1.37a24ad6acc9b70ea021.mp4",
-    "index.html": "/Assessment/index.html",
-    "main.fc787f11.css.map": "/Assessment/static/css/main.fc787f11.css.map",
-    "main.03a25253.js.map": "/Assessment/static/js/main.03a25253.js.map",
-    "787.ef1b7470.chunk.js.map": "/Assessment/static/js/787.ef1b7470.chunk.js.map"
+    "main.css": "/Assessment/saathi-open-source/static/css/main.fc787f11.css",
+    "main.js": "/Assessment/saathi-open-source/static/js/main.f242893e.js",
+    "static/js/787.f4a42be3.chunk.js": "/Assessment/saathi-open-source/static/js/787.f4a42be3.chunk.js",
+    "static/media/44619-quiz-1.mp4": "/Assessment/saathi-open-source/static/media/44619-quiz-1.37a24ad6acc9b70ea021.mp4",
+    "index.html": "/Assessment/saathi-open-source/index.html",
+    "main.fc787f11.css.map": "/Assessment/saathi-open-source/static/css/main.fc787f11.css.map",
+    "main.f242893e.js.map": "/Assessment/saathi-open-source/static/js/main.f242893e.js.map",
+    "787.f4a42be3.chunk.js.map": "/Assessment/saathi-open-source/static/js/787.f4a42be3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fc787f11.css",
-    "static/js/main.03a25253.js"
+    "static/js/main.f242893e.js"
   ]
 }
