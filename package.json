@@ -1,6 +1,5 @@
 {
-  "homepage": "http://MAnojSH5799.github.io/",
-  "name": "Assessment-tool",
+  "name": "Assessment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
