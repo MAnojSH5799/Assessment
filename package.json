@@ -1,8 +1,8 @@
 {
-  "homepage": "https://MAnojSH5799.github.io/Assessment",
   "name": "Assessment",
+  "homepage": "https://MAnojSH5799.github.io/Assessment",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",

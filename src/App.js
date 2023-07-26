@@ -23,7 +23,7 @@ import './Css/style.css';
       
         <Route path="/" exact element={<Layout />}>
         <Route path="LayOut" exact element={<LayOut />} />
-          <Route index element={<Home />} />
+          <Route path="/Assessment" index element={<Home />} />
           <Route path="test1" exact element={<TestOne />} />
           <Route path="test2" exact element={<TestTwo />} /> 
           <Route path="test3" exact element={<TestThree />} />
