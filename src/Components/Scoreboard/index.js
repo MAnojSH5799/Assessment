@@ -185,7 +185,7 @@ console.log("l20",level20)
 
   const handleSubmit = () => {
     window.location.reload();
-    window.location = "/"
+    window.location = "/Assessment"
   }
   return (
     <>
