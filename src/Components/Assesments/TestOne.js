@@ -15,26 +15,26 @@ const TestOne = ({ allAnswer, view }) => {
   };
 
   const handleOneAnswerClick = (e, a1, option) => {
-    let newOneQuestion = question;
-    newOneQuestion.map((obj, index) => {
-      if (obj.LevelNumber === option.LevelNumber && obj.QuestionNumber === option.QuestionNumber) {
-        if (a1 === obj.CorrectAnswer) {
-          obj.status = 1;
-        }
-        else {
-          obj.status = 0;
-        }
+    const newOneQuestion = question.map((obj) => {
+      if (
+        obj.LevelNumber === option.LevelNumber &&
+        obj.QuestionNumber === option.QuestionNumber
+      ) {
+        const updatedOptions = obj.options.map((optionValue) =>
+          optionValue === a1 ? 1 : 0
+        );
+        const status = a1 === option.CorrectAnswer ? 1 : 0;
+        return {
+          ...obj,
+          status: status,
+          status1:updatedOptions,
+        };
+        
       }
-    });
-    setQuestion(newOneQuestion);
-    const buttons = document.querySelectorAll('.buttonStyle');
-    buttons.forEach((button) => {
-      button.classList.remove('selected');
+      return obj;
       
     });
-
-    e.currentTarget.classList.add('selected');
-    e.currentTarget.style.outline = '2px solid green';
+    setQuestion(newOneQuestion);
   };
   const handleOneSubmit = () => {
     let isAllSelected = true;
@@ -92,7 +92,9 @@ const TestOne = ({ allAnswer, view }) => {
                   <div style={containerOneStyle}>
                     {option.options.map((a1, optionIndex) => (
                       <button
-                      className="buttonStyle"
+                      className={`buttonStyle ${
+                        option.status1[optionIndex] === 1 ? "selected" : ""
+                      }`}
                         onClick={(e) => handleOneAnswerClick(e, a1, option)}
                         key={a1}
                       >

@@ -12,7 +12,6 @@ const containerFourStyle = {
   gap: '0.1rem',
 };
 const TestFive = ({ allAnswer, view }) => {
-  console.log(allAnswer, view);
   const [question, setQuestion] = useState(allAnswer);
   const [TestFiveView, setTestFiveView] = useState(view);
 
@@ -75,7 +74,6 @@ const TestFive = ({ allAnswer, view }) => {
             <div className="span">
               <span className="s1">Topic : Identify bigger number</span>
             </div>
-           { console.log(question) }
             {question.map((option, index) =>
               option.LevelNumber === "5" ? (
                 <div className="qus">

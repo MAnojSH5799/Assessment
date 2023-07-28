@@ -14,26 +14,26 @@ const TestTwo = ({ allAnswer, view }) => {
     gap: '0.1rem',
   };
   const handleTwoAnswerClick = (e, a1, option) => {
-    let newTwoQuestion = question;
-
-    newTwoQuestion.map((obj, index) => {
-      if (obj.LevelNumber === option.LevelNumber && obj.QuestionNumber === option.QuestionNumber) {
-        if (a1 === obj.CorrectAnswer) {
-          obj.status = 1;
-        }
-        else {
-          obj.status = 0;
-        }
-
+    const newTwoQuestion = question.map((obj) => {
+      if (
+        obj.LevelNumber === option.LevelNumber &&
+        obj.QuestionNumber === option.QuestionNumber
+      ) {
+        const updatedOptions = obj.options.map((optionValue) =>
+          optionValue === a1 ? 1 : 0
+        );
+        const status = a1 === option.CorrectAnswer ? 1 : 0;
+        return {
+          ...obj,
+          status: status,
+          status1:updatedOptions,
+        };
+        
       }
+      return obj;
+      
     });
     setQuestion(newTwoQuestion);
-    const buttons = document.querySelectorAll('.buttonStyle');
-    buttons.forEach((button) => {
-      button.classList.remove('selected');
-    });
-    e.currentTarget.classList.add('selected');
-    e.currentTarget.style.outline = '2px solid green';
   };
   const handleTwoSubmit = () => {
     let isAllSelected = true;
@@ -78,7 +78,9 @@ const TestTwo = ({ allAnswer, view }) => {
                   <div style={containerTwoStyle}>
                     {option.options.map((a1, optionIndex) => (
                       <button
-                      className="buttonStyle"
+                      className={`buttonStyle ${
+                        option.status1[optionIndex] === 1 ? "selected" : ""
+                      }`}
                         onClick={(e) => handleTwoAnswerClick(e, a1, option)}
                         key={a1}
                       >

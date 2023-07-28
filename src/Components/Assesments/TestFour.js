@@ -11,12 +11,10 @@ const containerFourStyle = {
   gap: '0.1rem',
 };
 const TestFour = ({ allAnswer, view }) => {
-  console.log(allAnswer, view);
   const [question, setQuestion] = useState(allAnswer);
   const [testFourView, setTestFourView] = useState(view);
 
   const handleFourAnswerChange = (e, option) => {
-    console.log(option,"%%%%%")
     let newFourQuestion = [...question];
     newFourQuestion.forEach((obj) => {
       if (obj.LevelNumber === option.LevelNumber && obj.QuestionNumber === option.QuestionNumber) {
@@ -29,7 +27,6 @@ const TestFour = ({ allAnswer, view }) => {
       }
     });
     setQuestion(newFourQuestion);
-    console.log("$$$$",newFourQuestion)
     const buttons = document.querySelectorAll('.buttonStyle');
     buttons.forEach((button) => {
       button.classList.remove('selected');
@@ -56,7 +53,6 @@ const TestFour = ({ allAnswer, view }) => {
       }, 0);
 
       if (count > 6) {
-        // alert("Congraulations All Level Passed")
         setTestFourView(5)
       }
       else {
@@ -76,7 +72,6 @@ const TestFour = ({ allAnswer, view }) => {
             <div className="span">
               <span className="s1">Topic : Identify smaller number</span>
             </div>
-           { console.log(question) }
             {question.map((option, index) =>
               option.LevelNumber === "4" ? (
                 <div className="qus" >

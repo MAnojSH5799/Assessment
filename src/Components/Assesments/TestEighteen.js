@@ -17,8 +17,8 @@ const TestEighteen = ({ allAnswer, view }) => {
   const [TestEighteenView, setTestEighteenView] = useState(view);
 
   const handleTewlveAnswerChange = (e, option) => {
-    let newFourQuestion = [...Questions];
-    newFourQuestion.forEach((obj) => {
+    let newEighteenQuestion = [...Questions];
+    newEighteenQuestion.forEach((obj) => {
       if (obj.LevelNumber === option.LevelNumber && obj.QuestionNumber === option.QuestionNumber) {
         if (e.target.value === obj.CorrectAnswer) {
           obj.status = 1;
@@ -28,7 +28,7 @@ const TestEighteen = ({ allAnswer, view }) => {
         }
       }
     });
-    setQuestion(newFourQuestion);
+    setQuestion(newEighteenQuestion);
     const buttons = document.querySelectorAll('.buttonStyle');
     buttons.forEach((button) => {
       button.classList.remove('selected');      
@@ -45,8 +45,8 @@ const TestEighteen = ({ allAnswer, view }) => {
       }
     });
     if (isAllSelected) {
-      let newFourQuestion = Question;
-      const count = newFourQuestion.reduce((count, Question) => {
+      let newEighteenQuestion = Question;
+      const count = newEighteenQuestion.reduce((count, Question) => {
         if (Question.LevelNumber === "18" && Question.status === 1) {
           return count + 1;
         }
@@ -59,7 +59,7 @@ const TestEighteen = ({ allAnswer, view }) => {
       else {
          setTestEighteenView(17)
       }
-      setQuestion(newFourQuestion);
+      setQuestion(newEighteenQuestion);
     } else {
       alert("Please select an option for all Questions.");
     }

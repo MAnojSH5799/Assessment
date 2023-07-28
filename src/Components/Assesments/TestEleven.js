@@ -17,8 +17,8 @@ const TestEleven = ({ allAnswer, view }) => {
   const [testElevenView, setTestElevenViewView] = useState(view);
 
   const handleElevenAnswerChange = (e, option) => {
-    let newFourQuestion = [...Questions];
-    newFourQuestion.forEach((obj) => {
+    let newElevenQuestion = [...Questions];
+    newElevenQuestion.forEach((obj) => {
       if (obj.LevelNumber === option.LevelNumber && obj.QuestionNumber === option.QuestionNumber) {
         if (e.target.value === obj.CorrectAnswer) {
           obj.status = 1;
@@ -28,7 +28,7 @@ const TestEleven = ({ allAnswer, view }) => {
         }
       }
     });
-    setQuestion(newFourQuestion);
+    setQuestion(newElevenQuestion);
     const buttons = document.querySelectorAll('.buttonStyle');
     buttons.forEach((button) => {
       button.classList.remove('selected');      
@@ -45,8 +45,8 @@ const TestEleven = ({ allAnswer, view }) => {
       }
     });
     if (isAllSelected) {
-      let newFourQuestion = Question;
-      const count = newFourQuestion.reduce((count, Question) => {
+      let newElevenQuestion = Question;
+      const count = newElevenQuestion.reduce((count, Question) => {
         if (Question.LevelNumber === "11" && Question.status === 1) {
           return count + 1;
         }
@@ -59,7 +59,7 @@ const TestEleven = ({ allAnswer, view }) => {
       else {
          setTestElevenViewView(10)
       }
-      setQuestion(newFourQuestion);
+      setQuestion(newElevenQuestion);
     } else {
       alert("Please select an option for all Questions.");
     }

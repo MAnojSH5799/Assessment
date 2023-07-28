@@ -213,6 +213,14 @@ margin-bottom: 2%;
 border-radius: 10px;
 margin-top: 1%;
  }
- .buttonStyle.selected {
+ .buttonStyle.selected:focus {
+  outline: 2px solid green;
+}
+.buttonStyle:focus {
+  outline: none;
+}
+
+
+.selected {
   outline: 2px solid green;
 }

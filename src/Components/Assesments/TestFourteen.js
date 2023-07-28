@@ -16,26 +16,26 @@ const TestFourteen = ({ allAnswer, view })=> {
   const [TestFourteenView, setTestFourteenView] = useState(view);
 
   const handleThreeAnswerClick = (e, a1, option) => {
-    let newThreeQuestion = Question;
-    newThreeQuestion.map((obj, index) => {
-      if (obj.LevelNumber === option.LevelNumber && obj.QuestionNumber === option.QuestionNumber) {
-        if (a1 === obj.CorrectAnswer) {
-          obj.status = 1;
-        }
-        else {
-          obj.status = 0;
-        }
+    const newFourteenQuestion = Question.map((obj) => {
+      if (
+        obj.LevelNumber === option.LevelNumber &&
+        obj.QuestionNumber === option.QuestionNumber
+      ) {
+        const updatedOptions = obj.options.map((optionValue) =>
+          optionValue === a1 ? 1 : 0
+        );
+        const status = a1 === option.CorrectAnswer ? 1 : 0;
+        return {
+          ...obj,
+          status: status,
+          status1:updatedOptions,
+        };
+        
       }
+      return obj;
+      
     });
-
-    setQuestion(newThreeQuestion);
-
-    const buttons = document.querySelectorAll('.buttonStyle');
-    buttons.forEach((button) => {
-      button.classList.remove('selected');      
-    });
-    e.currentTarget.classList.add('selected');
-    e.currentTarget.style.outline = '2px solid green';
+    setQuestion(newFourteenQuestion);
   };
 
   const handleThreeSubmit = () => {
@@ -46,8 +46,8 @@ const TestFourteen = ({ allAnswer, view })=> {
       }
     });
     if (isAllSelected) {
-      let newThreeQuestion = Question;
-      const count = newThreeQuestion.reduce((count, Question) => {
+      let newFourteenQuestion = Question;
+      const count = newFourteenQuestion.reduce((count, Question) => {
         if (Question.LevelNumber === "14" && Question.status === 1) {
           return count + 1;
         }
@@ -60,7 +60,7 @@ const TestFourteen = ({ allAnswer, view })=> {
       else {
          setTestFourteenView(13);
       }
-      setQuestion(newThreeQuestion);
+      setQuestion(newFourteenQuestion);
     } else {
       alert("Please select an option for all Questions.");
     }
@@ -81,7 +81,9 @@ const TestFourteen = ({ allAnswer, view })=> {
                   <div style={containerThreeStyle}>
                     {option.options.map((a1, optionIndex) => (
                       <button
-                      className="buttonStyle"
+                      className={`buttonStyle ${
+                        option.status1[optionIndex] === 1 ? "selected" : ""
+                      }`}
                         onClick={(e) => handleThreeAnswerClick(e, a1, option)}
                         key={a1}
                       >
